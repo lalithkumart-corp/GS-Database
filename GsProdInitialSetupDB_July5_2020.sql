@@ -464,8 +464,10 @@ CREATE TABLE `user_preferences` (
   `bill_create_place_default` varchar(255) DEFAULT '',
   `bill_create_city_default` varchar(255) DEFAULT NULL,
   `bill_create_pincode_default` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`user_id`),
-  UNIQUE KEY `id` (`id`)
+  `auto_print_receipt` varchar(255) DEFAULT 'true',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `user_id_UNIQUE` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
