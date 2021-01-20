@@ -530,6 +530,36 @@ LOCK TABLES `rolemapping` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `stores`
+--
+
+DROP TABLE IF EXISTS `stores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `stores` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `store_name` varchar(500) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `place` varchar(255) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `pincode` varchar(45) DEFAULT NULL,
+  `mobile` varchar(45) DEFAULT NULL,
+  `email` varchar(155) DEFAULT NULL,
+  `loan_license_name` varchar(155) DEFAULT NULL,
+  `loan_bill_address_line1` varchar(255) DEFAULT NULL,
+  `loan_bill_address_line2` varchar(255) DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id_UNIQUE` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+--
 -- Table structure for table `suppliers`
 --
 
@@ -653,6 +683,7 @@ CREATE TABLE `user_preferences` (
   `bill_create_city_default` varchar(255) DEFAULT NULL,
   `bill_create_pincode_default` varchar(255) DEFAULT NULL,
   `auto_print_receipt` varchar(255) DEFAULT 'true',
+  `loan_bill_print_model` varchar(45) DEFAULT 'full',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`)
