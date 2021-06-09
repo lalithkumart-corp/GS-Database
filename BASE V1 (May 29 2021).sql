@@ -16,40 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `accesstoken`
+-- Table structure for table `AccessToken`
 --
 
-DROP TABLE IF EXISTS `accesstoken`;
+DROP TABLE IF EXISTS `AccessToken`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `accesstoken` (
-  `id` varchar(2000) NOT NULL,
+CREATE TABLE `AccessToken` (
+  `id` varchar(500) NOT NULL,
   `ttl` int DEFAULT NULL,
   `scopes` varchar(255) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `userId` int DEFAULT NULL,
   `sso_token` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `accesstoken`
+-- Dumping data for table `AccessToken`
 --
 
-LOCK TABLES `accesstoken` WRITE;
-/*!40000 ALTER TABLE `accesstoken` DISABLE KEYS */;
-/*!40000 ALTER TABLE `accesstoken` ENABLE KEYS */;
+LOCK TABLES `AccessToken` WRITE;
+/*!40000 ALTER TABLE `AccessToken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AccessToken` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `acl`
+-- Table structure for table `ACL`
 --
 
-DROP TABLE IF EXISTS `acl`;
+DROP TABLE IF EXISTS `ACL`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `acl` (
+CREATE TABLE `ACL` (
   `id` int NOT NULL AUTO_INCREMENT,
   `model` varchar(255) DEFAULT NULL,
   `property` varchar(255) DEFAULT NULL,
@@ -58,17 +58,17 @@ CREATE TABLE `acl` (
   `principalType` varchar(255) DEFAULT NULL,
   `principalId` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `acl`
+-- Dumping data for table `ACL`
 --
 
-LOCK TABLES `acl` WRITE;
-/*!40000 ALTER TABLE `acl` DISABLE KEYS */;
-INSERT INTO `acl` VALUES (1,'GsUser','loginUser','*','ALLOW','ROLE','$everyone'),(2,'GsUser','signupNewCustomer','*','ALLOW','ROLE','$everyone'),(3,'GsUser','*','*','ALLOW','ROLE','1'),(4,'GsUser','*','*','ALLOW','ROLE','2'),(5,'Pledgebook','*','*','DENY','ROLE','$everyone'),(6,'Pledgebook','*','*','ALLOW','ROLE','1'),(7,'Pledgebook','*','*','ALLOW','ROLE','2'),(8,'Pledgebook','*','*','ALLOW','ROLE','3'),(9,'Pledgebook','*','*','ALLOW','ROLE','4'),(10,'Stock','*','*','DENY','ROLE','$everyone'),(11,'Stock','*','*','ALLOW','ROLE','1'),(12,'Stock','*','*','ALLOW','ROLE','2'),(13,'Stock','*','*','ALLOW','ROLE','3'),(14,'Stock','*','*','ALLOW','ROLE','5'),(15,'GsUser','*','*','ALLOW','ROLE','3'),(16,'Pledgebook','archiveBillsApiHandler','*','DENY','ROLE','3'),(17,'Pledgebook','unArchiveBillsApiHandler','*','DENY','ROLE','3'),(18,'Pledgebook','trashBillsApiHandler','*','DENY','ROLE','3'),(19,'Pledgebook','deleteBillApiHandler','*','DENY','ROLE','3'),(20,'Pledgebook','archiveBillsApiHandler','*','DENY','ROLE','4'),(21,'Pledgebook','archiveBillsApiHandler','*','DENY','ROLE','4'),(22,'Pledgebook','trashBillsApiHandler','*','DENY','ROLE','4'),(23,'Pledgebook','deleteBillApiHandler','*','DENY','ROLE','4'),(24,'GsUser','validateUserByEmail','*','ALLOW','ROLE','$everyone'),(25,'GsUser','checkEmailExistance','*','ALLOW','ROLE','$everyone'),(26,'GsUser','ssoLogin','*','ALLOW','ROLE','$everyone'),(27,'GsUser','logoutApi','*','ALLOW','ROLE','$everyone');
-/*!40000 ALTER TABLE `acl` ENABLE KEYS */;
+LOCK TABLES `ACL` WRITE;
+/*!40000 ALTER TABLE `ACL` DISABLE KEYS */;
+INSERT INTO `ACL` VALUES (1,'GsUser','loginUser','*','ALLOW','ROLE','$everyone'),(2,'GsUser','signupNewCustomer','*','ALLOW','ROLE','$everyone'),(3,'GsUser','*','*','ALLOW','ROLE','1'),(4,'GsUser','*','*','ALLOW','ROLE','2'),(5,'Pledgebook','*','*','DENY','ROLE','$everyone'),(6,'Pledgebook','*','*','ALLOW','ROLE','1'),(7,'Pledgebook','*','*','ALLOW','ROLE','2'),(8,'Pledgebook','*','*','ALLOW','ROLE','3'),(9,'Pledgebook','*','*','ALLOW','ROLE','4'),(10,'Stock','*','*','DENY','ROLE','$everyone'),(11,'Stock','*','*','ALLOW','ROLE','1'),(12,'Stock','*','*','ALLOW','ROLE','2'),(13,'Stock','*','*','ALLOW','ROLE','3'),(14,'Stock','*','*','ALLOW','ROLE','5'),(15,'GsUser','*','*','ALLOW','ROLE','3'),(16,'Pledgebook','archiveBillsApiHandler','*','DENY','ROLE','3'),(17,'Pledgebook','unArchiveBillsApiHandler','*','DENY','ROLE','3'),(18,'Pledgebook','trashBillsApiHandler','*','DENY','ROLE','3'),(19,'Pledgebook','deleteBillApiHandler','*','DENY','ROLE','3'),(20,'Pledgebook','archiveBillsApiHandler','*','DENY','ROLE','4'),(21,'Pledgebook','archiveBillsApiHandler','*','DENY','ROLE','4'),(22,'Pledgebook','trashBillsApiHandler','*','DENY','ROLE','4'),(23,'Pledgebook','deleteBillApiHandler','*','DENY','ROLE','4'),(24,'GsUser','validateUserByEmail','*','ALLOW','ROLE','$everyone'),(25,'GsUser','checkEmailExistance','*','ALLOW','ROLE','$everyone'),(26,'GsUser','ssoLogin','*','ALLOW','ROLE','$everyone'),(27,'GsUser','logoutApi','*','ALLOW','ROLE','$everyone');
+/*!40000 ALTER TABLE `ACL` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `alerts` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `trigger_time_idx` (`trigger_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `app` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_UNIQUE` (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `customer` (
   `CreatedAt` datetime DEFAULT NULL,
   `ModifiedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`CustomerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +187,7 @@ CREATE TABLE `customer_metadata_list` (
   `Key` int NOT NULL,
   `DisplayText` varchar(50) NOT NULL,
   PRIMARY KEY (`SerialNo`,`Key`,`DisplayText`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +216,7 @@ CREATE TABLE `image` (
   `StorageMode` varchar(100) NOT NULL,
   `Optional` text,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,9 +241,9 @@ CREATE TABLE `interest_rates` (
   `type` varchar(45) DEFAULT NULL,
   `range_from` int DEFAULT NULL,
   `range_to` int DEFAULT NULL,
-  `rate_of_interest` int DEFAULT NULL,
+  `rate_of_interest` DOUBLE DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,7 +267,7 @@ CREATE TABLE `item_category` (
   `user_id` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +291,7 @@ CREATE TABLE `item_subcategory` (
   `user_id` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +314,7 @@ CREATE TABLE `metal` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -338,7 +338,7 @@ CREATE TABLE `notes` (
   `CustomerId` int NOT NULL,
   `Notes` text,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -366,7 +366,7 @@ CREATE TABLE `orn_images` (
   `StorageMode` varchar(100) NOT NULL,
   `Optional` text,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -391,7 +391,7 @@ CREATE TABLE `orn_list` (
   `category` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -422,7 +422,7 @@ CREATE TABLE `orn_list_jewellery` (
   `code_id` int DEFAULT NULL,
   `hashkey` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -447,7 +447,7 @@ CREATE TABLE `orn_list_jewellery_settings` (
   `lastEnteredNumber` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,7 +482,7 @@ CREATE TABLE `pledgebook` (
   `CreatedDate` datetime DEFAULT NULL,
   `ModifiedDate` datetime DEFAULT NULL,
   PRIMARY KEY (`Id`,`BillNo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -517,7 +517,7 @@ CREATE TABLE `pledgebook_closed_bills` (
   `paid_amt` varchar(45) DEFAULT NULL,
   `handed_over_to_person` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`,`pledgebook_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -555,7 +555,7 @@ CREATE TABLE `pledgebook_closed_bills_recycle_bin` (
   `handed_over_to_person` varchar(100) DEFAULT NULL,
   `my_created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`serial_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -600,7 +600,7 @@ CREATE TABLE `pledgebook_recycle_bin` (
   `ModifiedDate` datetime DEFAULT NULL,
   `this_table_created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`SerialNo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -627,7 +627,7 @@ CREATE TABLE `pledgebook_settings` (
   `bill_start` int DEFAULT NULL,
   `bill_limit` int DEFAULT NULL,
   PRIMARY KEY (`s_no`,`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -653,7 +653,7 @@ CREATE TABLE `product_code` (
   `next_serial` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -666,13 +666,13 @@ LOCK TABLES `product_code` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `role`
+-- Table structure for table `Role`
 --
 
-DROP TABLE IF EXISTS `role`;
+DROP TABLE IF EXISTS `Role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `role` (
+CREATE TABLE `Role` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `description` varchar(45) DEFAULT NULL,
@@ -680,42 +680,42 @@ CREATE TABLE `role` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `role`
+-- Dumping data for table `Role`
 --
 
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'SUPER_ADMIN','Super admin user',1,NULL,NULL),(2,'STORE_OWNER','Owner of the store',2,NULL,NULL),(3,'STORE_MANAGER','Employee of store',3,NULL,NULL),(4,'PLEDGEBOOK_EMPLOYEE','Pledgebook Access',4,NULL,NULL),(5,'JEWELLERY_EMPLOYEE','Jewellery Access',4,NULL,NULL),(7,'DUMMY_EMPLOYEE','Dummy User',3,NULL,NULL);
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+LOCK TABLES `Role` WRITE;
+/*!40000 ALTER TABLE `Role` DISABLE KEYS */;
+INSERT INTO `Role` VALUES (1,'SUPER_ADMIN','Super admin user',1,NULL,NULL),(2,'STORE_OWNER','Owner of the store',2,NULL,NULL),(3,'STORE_MANAGER','Employee of store',3,NULL,NULL),(4,'PLEDGEBOOK_EMPLOYEE','Pledgebook Access',4,NULL,NULL),(5,'JEWELLERY_EMPLOYEE','Jewellery Access',4,NULL,NULL),(7,'DUMMY_EMPLOYEE','Dummy User',3,NULL,NULL);
+/*!40000 ALTER TABLE `Role` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `rolemapping`
+-- Table structure for table `RoleMapping`
 --
 
-DROP TABLE IF EXISTS `rolemapping`;
+DROP TABLE IF EXISTS `RoleMapping`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `rolemapping` (
+CREATE TABLE `RoleMapping` (
   `id` int NOT NULL AUTO_INCREMENT,
   `principalType` varchar(45) DEFAULT NULL,
   `principalId` varchar(45) DEFAULT NULL,
   `roleId` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `rolemapping`
+-- Dumping data for table `RoleMapping`
 --
 
-LOCK TABLES `rolemapping` WRITE;
-/*!40000 ALTER TABLE `rolemapping` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rolemapping` ENABLE KEYS */;
+LOCK TABLES `RoleMapping` WRITE;
+/*!40000 ALTER TABLE `RoleMapping` DISABLE KEYS */;
+/*!40000 ALTER TABLE `RoleMapping` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -742,7 +742,7 @@ CREATE TABLE `stores` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -765,7 +765,7 @@ CREATE TABLE `suppliers` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -794,7 +794,7 @@ CREATE TABLE `tag` (
   UNIQUE KEY `stock_id_UNIQUE` (`stock_id`),
   KEY `stockId_idx` (`stock_id`),
   CONSTRAINT `stockId` FOREIGN KEY (`stock_id`) REFERENCES `stock` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -819,7 +819,7 @@ CREATE TABLE `touch` (
   `purity` varchar(45) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -833,13 +833,13 @@ INSERT INTO `touch` VALUES (10,'G','100','24K'),(11,'G','91.6','916'),(12,'G','8
 UNLOCK TABLES;
 
 --
--- Table structure for table `user`
+-- Table structure for table `User`
 --
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `User`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `user` (
+CREATE TABLE `User` (
   `id` int NOT NULL AUTO_INCREMENT,
   `ownerId` int DEFAULT '0',
   `realm` varchar(512) DEFAULT NULL,
@@ -854,16 +854,16 @@ CREATE TABLE `user` (
   `gateway` varchar(45) DEFAULT 'direct',
   `sso_userid` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `User`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+LOCK TABLES `User` WRITE;
+/*!40000 ALTER TABLE `User` DISABLE KEYS */;
+/*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -883,7 +883,7 @@ CREATE TABLE `user_preferences` (
   `loan_bill_print_model` varchar(45) DEFAULT 'full',
   PRIMARY KEY (`id`,`user_id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
