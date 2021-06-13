@@ -6,6 +6,10 @@ CREATE TABLE `fund_houses` (
   UNIQUE KEY `name_UNIQUE` (`name`)
 );
 
+INSERT INTO `fund_houses` (`name`) VALUES ('shop');
+INSERT INTO `fund_houses` (`name`) VALUES ('bank');
+
+
 DROP TABLE IF EXISTS `fund_transactions`;
 CREATE TABLE `fund_transactions` (
   `id` int NOT NULL AUTO_INCREMENT,
