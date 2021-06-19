@@ -23,3 +23,7 @@ CREATE TABLE `fund_transactions` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 );
+
+ALTER TABLE `gsprod`.`fund_transactions` 
+ADD COLUMN `cash_out` INT NULL DEFAULT 0 AFTER `cash_in`,
+CHANGE COLUMN `amount` `cash_in` INT NOT NULL DEFAULT 0 ;
