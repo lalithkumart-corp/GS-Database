@@ -4,7 +4,7 @@ CREATE TABLE `fund_accounts` (
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-)
+);
 
 INSERT INTO `fund_accounts` (`name`) VALUES ('shop');
 INSERT INTO `fund_accounts` (`name`) VALUES ('bank');
