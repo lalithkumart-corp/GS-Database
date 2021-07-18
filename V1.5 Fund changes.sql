@@ -22,3 +22,6 @@ ADD COLUMN `cash_out_to_bank_acc_no` VARCHAR(45) NULL AFTER `cash_out_to_bank_id
 ADD COLUMN `cash_out_to_bank_ifsc` VARCHAR(45) NULL AFTER `cash_out_to_bank_acc_no`,
 ADD COLUMN `cash_out_to_upi` VARCHAR(45) NULL AFTER `cash_out_to_bank_ifsc`,
 ADD COLUMN `cash_in_mode` VARCHAR(45) NULL AFTER `cash_out_to_upi`;
+
+ALTER TABLE `gsprod`.`fund_accounts` 
+DROP INDEX `name_UNIQUE` ;
