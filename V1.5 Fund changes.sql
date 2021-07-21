@@ -25,3 +25,6 @@ ADD COLUMN `cash_in_mode` VARCHAR(45) NULL AFTER `cash_out_to_upi`;
 
 ALTER TABLE `gsprod`.`fund_accounts` 
 DROP INDEX `name_UNIQUE` ;
+
+
+INSERT INTO `gsprod`.`loan_bill_avl_template_list` (`template_id`, `screenshot_url`) VALUES ('3', '/uploads/system/template3.jpeg');
