@@ -8,5 +8,5 @@ DROP INDEX `gs_uid_UNIQUE` ;
 ALTER TABLE `gsprod`.`fund_transactions` 
 ADD COLUMN `customer_id` VARCHAR(45) NULL AFTER `user_id`;
 
-ALTER TABLE `gsprod-aws-aug10`.`fund_transactions` 
+ALTER TABLE `gsprod`.`fund_transactions` 
 ADD INDEX `category` (`category` ASC) VISIBLE;
