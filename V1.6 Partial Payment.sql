@@ -6,7 +6,7 @@ ALTER TABLE `gsprod`.`fund_transactions`
 DROP INDEX `gs_uid_UNIQUE` ;
 
 ALTER TABLE `gsprod`.`fund_transactions` 
-ADD COLUMN `customer_id` VARCHAR(45) NULL AFTER `user_id`;
+ADD COLUMN `customer_id` INT NULL AFTER `user_id`;
 
 ALTER TABLE `gsprod`.`fund_transactions` 
 ADD INDEX `category` (`category` ASC) VISIBLE;
