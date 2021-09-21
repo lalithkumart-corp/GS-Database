@@ -8,6 +8,7 @@ CREATE TABLE fund_trns_tmp_1 (
 	transaction_date DATETIME NOT NULL,
 	user_id INT NOT NULL,
 	account_id INT NOT NULL,
+	customer_id INT NULL,
 	gs_uid VARCHAR(45) NULL,
 	category VARCHAR(200) NOT NULL,
 	remarks TEXT NULL,
@@ -27,11 +28,12 @@ CREATE TABLE fund_trns_tmp_1 (
 );
 
 
-INSERT INTO fund_trns_tmp_1 (id, transaction_date, user_id, account_id, gs_uid, category, remarks, deleted, cash_in, cash_out, created_date, modified_date, cash_out_mode, cash_out_to_bank_id, cash_out_to_bank_acc_no, cash_out_to_bank_ifsc, cash_out_to_upi, cash_in_mode)
+INSERT INTO fund_trns_tmp_1 (id, transaction_date, user_id, customer_id, account_id, gs_uid, category, remarks, deleted, cash_in, cash_out, created_date, modified_date, cash_out_mode, cash_out_to_bank_id, cash_out_to_bank_acc_no, cash_out_to_bank_ifsc, cash_out_to_upi, cash_in_mode)
 SELECT
 	id,
 	transaction_date,
 	user_id,
+	customer_id,
 	account_id,
 	gs_uid,
 	category,
