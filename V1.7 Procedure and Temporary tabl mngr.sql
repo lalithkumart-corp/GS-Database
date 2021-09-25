@@ -23,12 +23,13 @@ CREATE TABLE fund_trns_tmp_1 (
 	cash_out_to_bank_ifsc VARCHAR(45) NULL,
 	cash_out_to_upi VARCHAR(45) NULL,
 	cash_in_mode VARCHAR(45) NULL,
+	alert INT NULL,
 	beforeBal DECIMAL NULL,
 	afterBal DECIMAL NULL
 );
 
 
-INSERT INTO fund_trns_tmp_1 (id, transaction_date, user_id, customer_id, account_id, gs_uid, category, remarks, deleted, cash_in, cash_out, created_date, modified_date, cash_out_mode, cash_out_to_bank_id, cash_out_to_bank_acc_no, cash_out_to_bank_ifsc, cash_out_to_upi, cash_in_mode)
+INSERT INTO fund_trns_tmp_1 (id, transaction_date, user_id, customer_id, account_id, gs_uid, category, remarks, deleted, cash_in, cash_out, created_date, modified_date, cash_out_mode, cash_out_to_bank_id, cash_out_to_bank_acc_no, cash_out_to_bank_ifsc, cash_out_to_upi, cash_in_mode, alert)
 SELECT
 	id,
 	transaction_date,
@@ -48,7 +49,8 @@ SELECT
 	cash_out_to_bank_acc_no,
 	cash_out_to_bank_ifsc,
 	cash_out_to_upi,
-	cash_in_mode
+	cash_in_mode,
+	alert
 FROM
 	fund_transactions_1
 WHERE
