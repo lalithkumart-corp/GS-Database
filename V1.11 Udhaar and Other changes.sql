@@ -58,4 +58,4 @@ INSERT INTO tag_for_ui (name) VALUES ('tick');
 INSERT INTO tag_for_ui (name) VALUES ('doubletick');
 
 ALTER TABLE fund_transactions_1 
-ADD COLUMN tag_ui INT NULL AFTER is_internal;
+ADD COLUMN tag_indicator INT NULL AFTER is_internal;
