@@ -25,12 +25,13 @@ CREATE TABLE fund_trns_tmp_1 (
 	cash_in_mode VARCHAR(45) NULL,
 	alert INT NULL,
 	is_internal INT NULL,
+	tag_ui INT NULL,
 	beforeBal DECIMAL NULL,
 	afterBal DECIMAL NULL
 );
 
 
-INSERT INTO fund_trns_tmp_1 (id, transaction_date, user_id, customer_id, account_id, gs_uid, category, remarks, deleted, cash_in, cash_out, created_date, modified_date, cash_out_mode, cash_out_to_bank_id, cash_out_to_bank_acc_no, cash_out_to_bank_ifsc, cash_out_to_upi, cash_in_mode, alert, is_internal)
+INSERT INTO fund_trns_tmp_1 (id, transaction_date, user_id, customer_id, account_id, gs_uid, category, remarks, deleted, cash_in, cash_out, created_date, modified_date, cash_out_mode, cash_out_to_bank_id, cash_out_to_bank_acc_no, cash_out_to_bank_ifsc, cash_out_to_upi, cash_in_mode, alert, is_internal, tag_ui)
 SELECT
 	id,
 	transaction_date,
@@ -52,7 +53,8 @@ SELECT
 	cash_out_to_upi,
 	cash_in_mode,
 	alert,
-	is_internal
+	is_internal,
+	tag_ui
 FROM
 	fund_transactions_1
 WHERE

@@ -33,5 +33,29 @@ ALTER TABLE fund_trns_tmp_1
 ADD COLUMN is_internal INT NULL DEFAULT 0 AFTER alert;
 
 
-ALTER TABLE `gsprod`.`customer` 
-RENAME TO  `gsprod`.`customer_1` ;
+ALTER TABLE customer 
+RENAME TO  customer_1 ;
+
+
+CREATE TABLE tag_for_ui (
+  id INT NOT NULL,
+  name VARCHAR(100) NULL,
+  PRIMARY KEY (id));
+
+ALTER TABLE tag_for_ui 
+CHANGE COLUMN id id INT NOT NULL AUTO_INCREMENT ;
+
+
+INSERT INTO tag_for_ui (name) VALUES ('blue');
+INSERT INTO tag_for_ui (name) VALUES ('red');
+INSERT INTO tag_for_ui (name) VALUES ('orange');
+INSERT INTO tag_for_ui (name) VALUES ('brown');
+INSERT INTO tag_for_ui (name) VALUES ('green');
+INSERT INTO tag_for_ui (name) VALUES ('grey');
+INSERT INTO tag_for_ui (name) VALUES ('yellow');
+INSERT INTO tag_for_ui (name) VALUES ('cross');
+INSERT INTO tag_for_ui (name) VALUES ('tick');
+INSERT INTO tag_for_ui (name) VALUES ('doubletick');
+
+ALTER TABLE fund_transactions_1 
+ADD COLUMN tag_ui INT NULL AFTER is_internal;
