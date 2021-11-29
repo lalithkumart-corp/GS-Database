@@ -39,8 +39,8 @@ DROP COLUMN `ornament`,
 DROP COLUMN `retail_rate`,
 DROP COLUMN `wastage`,
 DROP COLUMN `touch_id`,
-ADD COLUMN `item_type` VARCHAR(45) NULL AFTER `user_id`,
-ADD COLUMN `wastage_val` FLOAT NULL AFTER `wastage`,
+ADD COLUMN `item_type` VARCHAR(45) NULL AFTER `id`,
+ADD COLUMN `wastage_val` FLOAT NULL AFTER `net_wt`,
 CHANGE COLUMN `invoice_ref` `invoice_ref` VARCHAR(45) NULL DEFAULT NULL ;
 
 ALTER TABLE `gsprod`.`old_items_stock_1` 
@@ -54,3 +54,6 @@ ADD COLUMN `raw_data` TEXT NULL AFTER `raw_payment_data`;
 
 ALTER TABLE `gsprod`.`invoice_details_1` 
 RENAME TO  `gsprod`.`jewellery_invoice_details_1` ;
+
+ALTER TABLE `gsprod`.`jewellery_invoice_details_1` 
+ADD COLUMN `invoice_data` TEXT NULL AFTER `raw_data`;
