@@ -1,0 +1,8 @@
+CREATE TABLE `gsprod`.`analytics_locations` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `latitude` VARCHAR(45) NULL,
+    `longitude` VARCHAR(45) NULL,
+    `user_id` INT NULL,
+    `created_date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`));
+    
