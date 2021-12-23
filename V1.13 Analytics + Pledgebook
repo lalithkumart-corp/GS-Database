@@ -6,3 +6,6 @@ CREATE TABLE `gsprod`.`analytics_locations` (
     `created_date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`));
     
+
+ALTER TABLE `gsprod`.`pledgebook_1` 
+ADD COLUMN `ExpiryDate` DATETIME NULL DEFAULT NULL AFTER `History`;
