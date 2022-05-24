@@ -50,3 +50,23 @@ BEGIN
     user_id=1;
 END;
 
+
+CREATE TRIGGER analytics_new_user_creation
+AFTER INSERT ON User
+FOR EACH ROW
+BEGIN
+    INSERT INTO analytics_module_used
+    SET module = 'USER_CREATION',
+    user_id=1,
+    ctx1=NEW.username;
+END;
+
+CREATE TRIGGER analytics_new_user_update
+AFTER UPDATE ON User
+FOR EACH ROW
+BEGIN
+    INSERT INTO analytics_module_used
+    SET module = 'USER_UPDATE',
+    user_id=1,
+    ctx1=NEW.username;
+END;
