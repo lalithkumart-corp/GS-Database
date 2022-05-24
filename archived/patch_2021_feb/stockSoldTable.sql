@@ -1,2 +1,2 @@
--- ALTER TABLE `gsprod`.`stock_sold_1` 
+-- ALTER TABLE `stock_sold_1` 
 -- ADD COLUMN `ornament` INT NULL AFTER `retail_rate`;

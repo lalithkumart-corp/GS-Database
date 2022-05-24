@@ -86,9 +86,9 @@ END
 
 
 
--- CREATE TABLE `gsprod`.`temporary_table_manager` (
+-- CREATE TABLE `temporary_table_manager` (
 --   `table_name` VARCHAR(100) NOT NULL,
 --   `is_locked` INT NOT NULL DEFAULT 0,
 --   PRIMARY KEY (`table_name`));
 
--- INSERT INTO `gsprod`.`temporary_table_manager` (`table_name`, `is_locked`) VALUES ('gs_temp_table', '0');
+-- INSERT INTO `temporary_table_manager` (`table_name`, `is_locked`) VALUES ('gs_temp_table', '0');

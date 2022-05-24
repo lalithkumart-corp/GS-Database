@@ -1,4 +1,4 @@
-CREATE TABLE `gsprod`.`analytics_locations` (
+CREATE TABLE `analytics_locations` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `latitude` VARCHAR(45) NULL,
     `longitude` VARCHAR(45) NULL,
@@ -7,5 +7,5 @@ CREATE TABLE `gsprod`.`analytics_locations` (
     PRIMARY KEY (`id`));
     
 
-ALTER TABLE `gsprod`.`pledgebook_1` 
+ALTER TABLE `pledgebook_1` 
 ADD COLUMN `ExpiryDate` DATETIME NULL DEFAULT NULL AFTER `History`;

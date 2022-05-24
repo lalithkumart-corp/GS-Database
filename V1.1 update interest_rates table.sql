@@ -1,2 +1,2 @@
-ALTER TABLE `gsprod`.`interest_rates` 
+ALTER TABLE `interest_rates` 
 CHANGE COLUMN `rate_of_interest` `rate_of_interest` DOUBLE NULL DEFAULT NULL ;

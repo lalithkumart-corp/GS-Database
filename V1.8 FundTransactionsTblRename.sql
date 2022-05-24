@@ -1,2 +1,2 @@
-ALTER TABLE `gsprod`.`fund_transactions` 
-RENAME TO  `gsprod`.`fund_transactions_1`;
+ALTER TABLE `fund_transactions` 
+RENAME TO  `fund_transactions_1`;

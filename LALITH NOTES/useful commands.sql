@@ -1,18 +1,18 @@
 ------------------------------------------------------------
-ALTER TABLE `gsprod`.`accesstoken` 
-RENAME TO  `gsprod`.`AccessToken` ;
+ALTER TABLE `accesstoken` 
+RENAME TO  `AccessToken` ;
 
-ALTER TABLE `gsprod`.`acl` 
-RENAME TO  `gsprod`.`ACL` ;
+ALTER TABLE `acl` 
+RENAME TO  `ACL` ;
 
-ALTER TABLE `gsprod`.`role` 
-RENAME TO  `gsprod`.`Role` ;
+ALTER TABLE `role` 
+RENAME TO  `Role` ;
 
-ALTER TABLE `gsprod`.`rolemapping` 
-RENAME TO  `gsprod`.`RoleMapping` ;
+ALTER TABLE `rolemapping` 
+RENAME TO  `RoleMapping` ;
 
-ALTER TABLE `gsprod`.`user` 
-RENAME TO  `gsprod`.`User` ;
+ALTER TABLE `user` 
+RENAME TO  `User` ;
 
 
 ------------------------------------------------------------
