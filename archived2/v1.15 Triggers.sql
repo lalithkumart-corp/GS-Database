@@ -1,3 +1,4 @@
+DELIMITER |
 CREATE TRIGGER analytics_pledgebook
 AFTER INSERT ON gsprod.pledgebook_1
 FOR EACH ROW
@@ -13,8 +14,10 @@ BEGIN
     INSERT INTO analytics_module_used
     SET module = 'BILL_CREATION';
 END;
+|
+DELIMITER ;
 
-
+DELIMITER |
 CREATE TRIGGER analytics_pledgebook_closed
 AFTER INSERT ON pledgebook_closed_bills_1
 FOR EACH ROW
@@ -29,8 +32,10 @@ BEGIN
     INSERT INTO analytics_module_used
     SET module = 'BILL_REDEEM';
 END;
+|
+DELIMITER ;
 
-
+DELIMITER |
 CREATE TRIGGER analytics_customer_insert
 AFTER INSERT ON customer_1
 FOR EACH ROW
@@ -39,8 +44,10 @@ BEGIN
     SET module = 'CUSTOMER_INSERT',
     user_id=1;
 END;
+|
+DELIMITER ;
 
-
+DELIMITER |
 CREATE TRIGGER analytics_customer_update
 AFTER UPDATE ON customer_1
 FOR EACH ROW
@@ -49,8 +56,10 @@ BEGIN
     SET module = 'CUSTOMER_UPDATE',
     user_id=1;
 END;
+|
+DELIMITER ;
 
-
+DELIMITER |
 CREATE TRIGGER analytics_new_user_creation
 AFTER INSERT ON User
 FOR EACH ROW
@@ -60,7 +69,10 @@ BEGIN
     user_id=1,
     ctx1=NEW.username;
 END;
+|
+DELIMITER ;
 
+DELIMITER |
 CREATE TRIGGER analytics_new_user_update
 AFTER UPDATE ON User
 FOR EACH ROW
@@ -70,3 +82,5 @@ BEGIN
     user_id=1,
     ctx1=NEW.username;
 END;
+|
+DELIMITER ;
