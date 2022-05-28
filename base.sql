@@ -1627,7 +1627,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,0,NULL,'Amith','','$2a$10$diPCcasWAOrCgUQ9FCJduuAA3mt9yo6hZy.BU9CMRwUJjKoYR6rK.','sonu@123#','mj@trsoftware.in','1231231231',NULL,NULL,'direct',NULL);
+INSERT INTO `user` VALUES (1,0,NULL,'Lalith','','$2a$10$diPCcasWAOrCgUQ9FCJduuAA3mt9yo6hZy.BU9CMRwUJjKoYR6rK.','sonu@123#','mj@trsoftware.in','1231231231',NULL,NULL,'direct',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
