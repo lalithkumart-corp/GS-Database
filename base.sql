@@ -266,6 +266,7 @@ CREATE TABLE `app` (
   `key` varchar(255) DEFAULT NULL,
   `status` int DEFAULT '0',
   `used_trial_offer` int DEFAULT '0',
+  `core_flag` tinyint DEFAULT '0',
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `valid_till_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -1717,3 +1718,89 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-05-25  0:10:41
+
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `fund_trns_procedure_1`(IN Date1 varchar(100), IN Date2 varchar(100), IN UserId int(20))
+BEGIN
+
+DROP TABLE IF EXISTS fund_trns_tmp_1;
+
+CREATE TABLE fund_trns_tmp_1 (
+	id INT NOT NULL,
+	transaction_date DATETIME NOT NULL,
+	user_id INT NOT NULL,
+	account_id INT NOT NULL,
+	customer_id INT NULL,
+	gs_uid VARCHAR(45) NULL,
+	category VARCHAR(200) NOT NULL,
+	remarks TEXT NULL,
+	deleted INT NULL,
+	cash_in DECIMAL NULL,
+	cash_out DECIMAL NULL,
+	created_date DATETIME NULL,
+	modified_date DATETIME NULL,
+	cash_out_mode VARCHAR(45) NULL,
+	cash_out_to_bank_id INT NULL,
+	cash_out_to_bank_acc_no VARCHAR(45) NULL,
+	cash_out_to_bank_ifsc VARCHAR(45) NULL,
+	cash_out_to_upi VARCHAR(45) NULL,
+	cash_in_mode VARCHAR(45) NULL,
+	alert INT NULL,
+	is_internal INT NULL,
+	tag_indicator INT NULL,
+	beforeBal DECIMAL NULL,
+	afterBal DECIMAL NULL
+);
+
+
+INSERT INTO fund_trns_tmp_1 (id, transaction_date, user_id, customer_id, account_id, gs_uid, category, remarks, deleted, cash_in, cash_out, created_date, modified_date, cash_out_mode, cash_out_to_bank_id, cash_out_to_bank_acc_no, cash_out_to_bank_ifsc, cash_out_to_upi, cash_in_mode, alert, is_internal, tag_indicator)
+SELECT
+	id,
+	transaction_date,
+	user_id,
+	customer_id,
+	account_id,
+	gs_uid,
+	category,
+	remarks,
+	deleted,
+	cash_in,
+	cash_out,
+	created_date,
+	modified_date,
+	cash_out_mode,
+	cash_out_to_bank_id,
+	cash_out_to_bank_acc_no,
+	cash_out_to_bank_ifsc,
+	cash_out_to_upi,
+	cash_in_mode,
+	alert,
+	is_internal,
+	tag_indicator
+FROM
+	fund_transactions_1
+WHERE
+	deleted = 0
+	AND(transaction_date BETWEEN Date1
+		AND Date2)
+ORDER BY
+	transaction_date ASC;
+
+
+SET @bal = (
+SELECT
+	IFNULL(SUM(cash_in - cash_out), 0) AS openingBalByPage
+	FROM
+		fund_transactions_1
+	WHERE
+		deleted = 0
+		AND transaction_date < Date1);
+
+UPDATE
+	fund_trns_tmp_1
+SET
+	beforeBal = @bal,
+	afterBal = (@bal:=@bal + (fund_trns_tmp_1.cash_in - fund_trns_tmp_1.cash_out));
+
+END ;;
+DELIMITER ;
