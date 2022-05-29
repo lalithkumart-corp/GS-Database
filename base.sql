@@ -30,7 +30,7 @@ CREATE TABLE `accesstoken` (
   `userId` int DEFAULT NULL,
   `sso_token` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+)  ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `accesstoken` (
 
 LOCK TABLES `accesstoken` WRITE;
 /*!40000 ALTER TABLE `accesstoken` DISABLE KEYS */;
+INSERT INTO `accesstoken` VALUES ('XKcCszOzrhT5sHhHB4GMWjH25j5FazybzM1ihoPLlgUmRbHBvKVqpoFeZPiT4SDV',1209600,NULL,'2022-05-28 08:26:02',2,NULL);
 /*!40000 ALTER TABLE `accesstoken` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +59,7 @@ CREATE TABLE `acl` (
   `principalType` varchar(255) DEFAULT NULL,
   `principalId` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=26;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +95,7 @@ CREATE TABLE `alerts` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `trigger_time_idx` (`trigger_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,22 +120,14 @@ CREATE TABLE `analytics_app_login` (
   `wmic` varchar(245) DEFAULT NULL,
   `action` varchar(45) DEFAULT NULL,
   `resp` varchar(45) DEFAULT NULL,
-  `other` varchar(45) DEFAULT NULL,
+  `other` varchar(555) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `synced` tinyint DEFAULT '0',
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `analytics_app_login`
---
-
-LOCK TABLES `analytics_app_login` WRITE;
-/*!40000 ALTER TABLE `analytics_app_login` DISABLE KEYS */;
-/*!40000 ALTER TABLE `analytics_app_login` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `analytics_app_usage`
@@ -153,17 +146,9 @@ CREATE TABLE `analytics_app_usage` (
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `analytics_app_usage`
---
-
-LOCK TABLES `analytics_app_usage` WRITE;
-/*!40000 ALTER TABLE `analytics_app_usage` DISABLE KEYS */;
-/*!40000 ALTER TABLE `analytics_app_usage` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `analytics_locations`
@@ -179,7 +164,7 @@ CREATE TABLE `analytics_locations` (
   `user_id` int DEFAULT NULL,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +194,7 @@ CREATE TABLE `analytics_module_used` (
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +226,7 @@ CREATE TABLE `analytics_pledgebook` (
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -272,7 +257,7 @@ CREATE TABLE `app` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_UNIQUE` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)  AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,7 +266,7 @@ CREATE TABLE `app` (
 
 LOCK TABLES `app` WRITE;
 /*!40000 ALTER TABLE `app` DISABLE KEYS */;
-INSERT INTO `app` VALUES (1,1,'abcdefgh',1,1,'2021-01-11 00:00:00','2023-01-11 00:00:00','2021-01-11 00:00:00');
+INSERT INTO `app` VALUES (1,1,'dummy',1,1,0,'2021-01-11 00:00:00','2023-01-11 00:00:00','2021-01-11 00:00:00'),(2,2,'d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35',1,1,0,'2022-05-28 13:56:01','2023-06-03 13:06:04','2022-05-28 13:05:04');
 /*!40000 ALTER TABLE `app` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +281,7 @@ CREATE TABLE `banks_list` (
   `id` int NOT NULL,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -338,17 +323,8 @@ CREATE TABLE `customer_1` (
   `CreatedAt` datetime DEFAULT NULL,
   `ModifiedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`CustomerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `customer_1`
---
-
-LOCK TABLES `customer_1` WRITE;
-/*!40000 ALTER TABLE `customer_1` DISABLE KEYS */;
-/*!40000 ALTER TABLE `customer_1` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -388,6 +364,15 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
+-- Dumping data for table `customer_1`
+--
+
+LOCK TABLES `customer_1` WRITE;
+/*!40000 ALTER TABLE `customer_1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `customer_1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `customer_metadata_list`
 --
 
@@ -400,7 +385,7 @@ CREATE TABLE `customer_metadata_list` (
   `Key` int NOT NULL,
   `DisplayText` varchar(50) NOT NULL,
   PRIMARY KEY (`SerialNo`,`Key`,`DisplayText`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=9 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -430,7 +415,7 @@ CREATE TABLE `fund_accounts` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `is_default` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)  AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -476,7 +461,7 @@ CREATE TABLE `fund_transactions_1` (
   PRIMARY KEY (`id`),
   KEY `category` (`category`),
   KEY `gs_uid_idx` (`gs_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -520,7 +505,7 @@ CREATE TABLE `fund_trns_tmp_1` (
   `tag_indicator` int DEFAULT NULL,
   `beforeBal` decimal(10,0) DEFAULT NULL,
   `afterBal` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -548,7 +533,7 @@ CREATE TABLE `image` (
   `StorageMode` varchar(100) NOT NULL,
   `Optional` text,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -575,7 +560,7 @@ CREATE TABLE `interest_rates` (
   `range_to` int DEFAULT NULL,
   `rate_of_interest` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=5;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -584,7 +569,7 @@ CREATE TABLE `interest_rates` (
 
 LOCK TABLES `interest_rates` WRITE;
 /*!40000 ALTER TABLE `interest_rates` DISABLE KEYS */;
-INSERT INTO `interest_rates` VALUES (1,1,'gold',1,9999,3),(2,1,'gold',10000,1000000,2),(3,1,'silver',1,1000000,4),(4,1,'brass',1,1000000,10),(21,2,'gold',0,10000000,2);
+INSERT INTO `interest_rates` VALUES (1,1,'gold',1,9999,3),(2,1,'gold',10000,1000000,2),(3,1,'silver',1,1000000,4),(4,1,'brass',1,1000000,10);
 /*!40000 ALTER TABLE `interest_rates` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -600,7 +585,7 @@ CREATE TABLE `item_category` (
   `user_id` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -624,7 +609,7 @@ CREATE TABLE `item_subcategory` (
   `user_id` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -649,7 +634,7 @@ CREATE TABLE `jewellery_bill_avl_template_list` (
   `template_id` int DEFAULT NULL,
   `screenshot_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -678,7 +663,7 @@ CREATE TABLE `jewellery_bill_settings` (
   `selected_template` int DEFAULT NULL,
   `custom_css` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -714,7 +699,7 @@ CREATE TABLE `jewellery_invoice_details_1` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid_UNIQUE` (`ukey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -738,7 +723,7 @@ CREATE TABLE `loan_bill_avl_template_list` (
   `template_id` int DEFAULT NULL,
   `screenshot_url` varchar(455) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)  AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -764,7 +749,7 @@ CREATE TABLE `loan_bill_tempate_settings` (
   `header` text,
   `body_template` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)  AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -773,7 +758,7 @@ CREATE TABLE `loan_bill_tempate_settings` (
 
 LOCK TABLES `loan_bill_tempate_settings` WRITE;
 /*!40000 ALTER TABLE `loan_bill_tempate_settings` DISABLE KEYS */;
-INSERT INTO `loan_bill_tempate_settings` VALUES (1,1,'{\"firstLine\":{\"left\":{\"text\":\"Form F (Sec. 7 - Rule8)\"},\"center\":{\"text\":\"PAWN TICKET\"},\"right\":{\"text\":\"PBL No. 3/87-88\"},\"styles\":{\"marginTop\":null,\"marginBottom\":null,\"marginRight\":null,\"marginLeft\":null}},\"secondLine\":{\"text\":\"P.TEJARAM\",\"styles\":{\"fontSize\":\"45\",\"letterSpacing\":\"15\",\"color\":\"red\"}},\"thirdLine\":{\"text\":\"PAWN BROKER\",\"styles\":{\"fontSize\":\"17\"}},\"fourthLine\":{\"text\":\"2/34 MOUNT POONAMALLE ROAD, KATTUPPAKKAM, CHENNAI - 600 056\",\"styles\":{\"fontSize\":null}},\"fifthLine\":{\"text\":\"\",\"styles\":{\"fontSize\":null}}}',1),(5,2,'{\"firstLine\":{\"left\":{\"text\":\"\"},\"center\":{\"text\":\"\"},\"right\":{\"text\":\"\"},\"styles\":{\"marginTop\":null,\"marginBottom\":null,\"marginRight\":null,\"marginLeft\":null}},\"secondLine\":{\"text\":\"STORE NAME\",\"styles\":{\"fontSize\":\"42\",\"letterSpacing\":\"1\",\"color\":\"red\"}},\"thirdLine\":{\"text\":\"PAWN BROKER\",\"styles\":{\"fontSize\":\"20\"}},\"fourthLine\":{\"text\":\"2/34 TRUNK ROAD, KATTUPAKKAM, CHENNAI-600056\",\"styles\":{\"fontSize\":\"20\"}},\"fifthLine\":{\"text\":\"\",\"styles\":{\"fontSize\":\"-3\"}}}',NULL);
+INSERT INTO `loan_bill_tempate_settings` VALUES (1,1,'{\"firstLine\":{\"left\":{\"text\":\"Form F (Sec. 7 - Rule8)\"},\"center\":{\"text\":\"PAWN TICKET\"},\"right\":{\"text\":\"PBL No. 3/87-88\"},\"styles\":{\"marginTop\":null,\"marginBottom\":null,\"marginRight\":null,\"marginLeft\":null}},\"secondLine\":{\"text\":\"P.TEJARAM\",\"styles\":{\"fontSize\":\"45\",\"letterSpacing\":\"15\",\"color\":\"red\"}},\"thirdLine\":{\"text\":\"PAWN BROKER\",\"styles\":{\"fontSize\":\"17\"}},\"fourthLine\":{\"text\":\"2/34 MOUNT POONAMALLE ROAD, KATTUPPAKKAM, CHENNAI - 600 056\",\"styles\":{\"fontSize\":null}},\"fifthLine\":{\"text\":\"\",\"styles\":{\"fontSize\":null}}}',1);
 /*!40000 ALTER TABLE `loan_bill_tempate_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -788,7 +773,7 @@ CREATE TABLE `metal` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -816,7 +801,7 @@ CREATE TABLE `notes_1` (
   `CreatedDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `ModifiedDate` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -847,7 +832,7 @@ CREATE TABLE `old_items_stock_1` (
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -875,7 +860,7 @@ CREATE TABLE `orn_images` (
   `StorageMode` varchar(100) NOT NULL,
   `Optional` text,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -900,7 +885,7 @@ CREATE TABLE `orn_list` (
   `category` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=153;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -932,7 +917,7 @@ CREATE TABLE `orn_list_jewellery` (
   `code_id` int DEFAULT NULL,
   `hashkey` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)  AUTO_INCREMENT=3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -941,7 +926,7 @@ CREATE TABLE `orn_list_jewellery` (
 
 LOCK TABLES `orn_list_jewellery` WRITE;
 /*!40000 ALTER TABLE `orn_list_jewellery` DISABLE KEYS */;
-INSERT INTO `orn_list_jewellery` VALUES (5,1,'G','CHAIN','LOTUS','','24',NULL,15,'Z1rCGje'),(6,1,'G','CHAIN','GODUME','','24',NULL,15,'ZKFxt2');
+INSERT INTO `orn_list_jewellery` VALUES (1,1,'G','CHAIN','LOTUS','','24',NULL,15,'Z1rCGje'),(2,1,'G','CHAIN','GODUME','','24',NULL,15,'ZKFxt2');
 /*!40000 ALTER TABLE `orn_list_jewellery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -958,7 +943,7 @@ CREATE TABLE `orn_list_jewellery_settings` (
   `lastEnteredNumber` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -993,7 +978,7 @@ CREATE TABLE `pledgebook` (
   `CreatedDate` datetime DEFAULT NULL,
   `ModifiedDate` datetime DEFAULT NULL,
   PRIMARY KEY (`Id`,`BillNo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1039,17 +1024,8 @@ CREATE TABLE `pledgebook_1` (
   `CreatedDate` datetime DEFAULT NULL,
   `ModifiedDate` datetime DEFAULT NULL,
   PRIMARY KEY (`UniqueIdentifier`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pledgebook_1`
---
-
-LOCK TABLES `pledgebook_1` WRITE;
-/*!40000 ALTER TABLE `pledgebook_1` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pledgebook_1` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1078,6 +1054,15 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
+-- Dumping data for table `pledgebook_1`
+--
+
+LOCK TABLES `pledgebook_1` WRITE;
+/*!40000 ALTER TABLE `pledgebook_1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pledgebook_1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pledgebook_closed_bills`
 --
 
@@ -1100,7 +1085,7 @@ CREATE TABLE `pledgebook_closed_bills` (
   `paid_amt` varchar(45) DEFAULT NULL,
   `handed_over_to_person` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`,`pledgebook_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1139,17 +1124,8 @@ CREATE TABLE `pledgebook_closed_bills_1` (
   PRIMARY KEY (`pledgebook_uid`),
   KEY `UniqueIdentifier_idx` (`pledgebook_uid`),
   CONSTRAINT `pledgebook_closed_bills_1_ibfk_1` FOREIGN KEY (`pledgebook_uid`) REFERENCES `pledgebook_1` (`UniqueIdentifier`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pledgebook_closed_bills_1`
---
-
-LOCK TABLES `pledgebook_closed_bills_1` WRITE;
-/*!40000 ALTER TABLE `pledgebook_closed_bills_1` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pledgebook_closed_bills_1` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1177,6 +1153,15 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
+-- Dumping data for table `pledgebook_closed_bills_1`
+--
+
+LOCK TABLES `pledgebook_closed_bills_1` WRITE;
+/*!40000 ALTER TABLE `pledgebook_closed_bills_1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pledgebook_closed_bills_1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pledgebook_settings`
 --
 
@@ -1191,7 +1176,7 @@ CREATE TABLE `pledgebook_settings` (
   `bill_start` int DEFAULT NULL,
   `bill_limit` int DEFAULT NULL,
   PRIMARY KEY (`s_no`,`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1218,7 +1203,7 @@ CREATE TABLE `product_code` (
   `next_serial` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1245,7 +1230,7 @@ CREATE TABLE `role` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=5;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1271,7 +1256,7 @@ CREATE TABLE `rolemapping` (
   `principalId` varchar(45) DEFAULT NULL,
   `roleId` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1341,7 +1326,7 @@ CREATE TABLE `stock_1` (
   CONSTRAINT `ornament_11` FOREIGN KEY (`ornament`) REFERENCES `orn_list_jewellery` (`id`),
   CONSTRAINT `supplier_11` FOREIGN KEY (`supplierId`) REFERENCES `suppliers` (`id`),
   CONSTRAINT `touch_11` FOREIGN KEY (`touch_id`) REFERENCES `touch` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1384,7 +1369,7 @@ CREATE TABLE `stock_sold_1` (
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1421,7 +1406,7 @@ CREATE TABLE `stores` (
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1445,7 +1430,7 @@ CREATE TABLE `suppliers` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1473,7 +1458,7 @@ CREATE TABLE `tag` (
   UNIQUE KEY `tag_code_UNIQUE` (`tag`),
   UNIQUE KEY `stock_id_UNIQUE` (`stock_id`),
   KEY `stockId_idx` (`stock_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1496,7 +1481,7 @@ CREATE TABLE `tag_indicator_list` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) AUTO_INCREMENT=11;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1522,7 +1507,7 @@ CREATE TABLE `touch` (
   `purity` varchar(45) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) AUTO_INCREMENT=19;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1558,7 +1543,7 @@ CREATE TABLE `udhaar_1` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_identifier_UNIQUE` (`unique_identifier`),
   UNIQUE KEY `bill_no_UNIQUE` (`bill_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1583,7 +1568,7 @@ CREATE TABLE `udhaar_settings` (
   `bill_series` varchar(45) DEFAULT NULL,
   `next_bill_no` int DEFAULT NULL,
   PRIMARY KEY (`udhaar_settings_id`,`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1618,26 +1603,16 @@ CREATE TABLE `user` (
   `gateway` varchar(45) DEFAULT 'direct',
   `sso_userid` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+)  AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,0,NULL,'Lalith','','$2a$10$diPCcasWAOrCgUQ9FCJduuAA3mt9yo6hZy.BU9CMRwUJjKoYR6rK.','sonu@123#','mj@trsoftware.in','1231231231',NULL,NULL,'direct',NULL);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `analytics_new_user_creation` AFTER INSERT ON `user` FOR EACH ROW BEGIN
     INSERT INTO analytics_module_used
@@ -1672,6 +1647,16 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,0,NULL,'Mahalakshmi','','$2a$10$diPCcasWAOrCgUQ9FCJduuAA3mt9yo6hZy.BU9CMRwUJjKoYR6rK.','','mj@trsoftware.in','1231231231',NULL,NULL,'direct',NULL);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_preferences`
 --
 
@@ -1688,7 +1673,7 @@ CREATE TABLE `user_preferences` (
   `loan_bill_print_model` varchar(45) DEFAULT 'full',
   PRIMARY KEY (`id`,`user_id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1700,6 +1685,8 @@ LOCK TABLES `user_preferences` WRITE;
 /*!40000 ALTER TABLE `user_preferences` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+
 --
 -- Dumping events for database 'base'
 --
@@ -1707,18 +1694,15 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'base'
 --
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2022-05-25  0:10:41
-
+/*!50003 DROP PROCEDURE IF EXISTS `fund_trns_procedure_1` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `fund_trns_procedure_1`(IN Date1 varchar(100), IN Date2 varchar(100), IN UserId int(20))
 BEGIN
@@ -1804,3 +1788,19 @@ SET
 
 END ;;
 DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-05-29 18:46:34
