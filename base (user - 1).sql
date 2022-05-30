@@ -1002,7 +1002,7 @@ CREATE TABLE `pledgebook_1` (
   `BillNo` varchar(45) DEFAULT NULL,
   `Amount` int DEFAULT NULL,
   `PresentValue` int DEFAULT '0',
-  `Date` varchar(45) DEFAULT NULL,
+  `Date` datetime DEFAULT NULL,
   `CustomerId` int DEFAULT NULL,
   `Orn` text,
   `OrnPictureId` int DEFAULT NULL,
