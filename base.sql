@@ -1161,6 +1161,90 @@ LOCK TABLES `pledgebook_closed_bills_1` WRITE;
 /*!40000 ALTER TABLE `pledgebook_closed_bills_1` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+--
+-- Table structure for table `pledgebook_closed_bills_recycle_bin`
+--
+
+DROP TABLE IF EXISTS `pledgebook_closed_bills_recycle_bin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `pledgebook_closed_bills_recycle_bin` (
+  `serial_no` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(45) DEFAULT NULL,
+  `uid` bigint DEFAULT NULL,
+  `pledgebook_uid` varchar(45) DEFAULT NULL,
+  `bill_no` varchar(45) DEFAULT NULL,
+  `pledged_date` varchar(45) DEFAULT NULL,
+  `closed_date` varchar(45) DEFAULT NULL,
+  `principal_amt` int DEFAULT NULL,
+  `no_of_month` int DEFAULT NULL,
+  `rate_of_interest` varchar(45) DEFAULT NULL,
+  `int_rupee_per_month` varchar(45) DEFAULT NULL,
+  `interest_amt` varchar(45) DEFAULT NULL,
+  `actual_estimated_amt` varchar(45) DEFAULT NULL,
+  `discount_amt` varchar(45) DEFAULT NULL,
+  `paid_amt` varchar(45) DEFAULT NULL,
+  `handed_over_to_person` varchar(100) DEFAULT NULL,
+  `my_created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`serial_no`)
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pledgebook_closed_bills_recycle_bin`
+--
+
+LOCK TABLES `pledgebook_closed_bills_recycle_bin` WRITE;
+/*!40000 ALTER TABLE `pledgebook_closed_bills_recycle_bin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pledgebook_closed_bills_recycle_bin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pledgebook_recycle_bin`
+--
+
+DROP TABLE IF EXISTS `pledgebook_recycle_bin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `pledgebook_recycle_bin` (
+  `SerialNo` int NOT NULL AUTO_INCREMENT,
+  `UserId` int DEFAULT NULL,
+  `UniqueIdentifier` varchar(45) DEFAULT NULL,
+  `BillNo` varchar(45) DEFAULT NULL,
+  `Amount` int DEFAULT NULL,
+  `Date` varchar(45) DEFAULT NULL,
+  `CustomerId` int DEFAULT NULL,
+  `Orn` text,
+  `OrnPictureId` int DEFAULT NULL,
+  `OrnCategory` varchar(45) DEFAULT NULL,
+  `TotalWeight` float DEFAULT '0',
+  `IntPercent` float DEFAULT '0',
+  `IntVal` float DEFAULT '0',
+  `OtherCharges` float DEFAULT '0',
+  `LandedCost` float DEFAULT '0',
+  `Remarks` text,
+  `Status` int DEFAULT '1',
+  `closedBillReference` varchar(45) DEFAULT NULL,
+  `History` text,
+  `Alert` int DEFAULT NULL,
+  `Archived` int DEFAULT '0',
+  `CreatedDate` datetime DEFAULT NULL,
+  `ModifiedDate` datetime DEFAULT NULL,
+  `this_table_created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`SerialNo`)
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pledgebook_recycle_bin`
+--
+
+LOCK TABLES `pledgebook_recycle_bin` WRITE;
+/*!40000 ALTER TABLE `pledgebook_recycle_bin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pledgebook_recycle_bin` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `pledgebook_settings`
 --
