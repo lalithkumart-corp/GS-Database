@@ -1817,7 +1817,8 @@ CREATE TABLE fund_trns_tmp_1 (
 	is_internal INT NULL,
 	tag_indicator INT NULL,
 	beforeBal DECIMAL NULL,
-	afterBal DECIMAL NULL
+	afterBal DECIMAL NULL,
+  grp_logic INT NULL
 );
 
 
