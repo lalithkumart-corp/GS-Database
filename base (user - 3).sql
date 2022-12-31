@@ -1080,6 +1080,7 @@ CREATE TABLE `loan_bill_tempate_settings` (
   `user_id` int DEFAULT NULL,
   `header` text,
   `body_template` int DEFAULT NULL,
+  `other` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2091,6 +2092,7 @@ CREATE TABLE `stock_1` (
   `ornament` int DEFAULT NULL,
   `pr_code` varchar(45) DEFAULT NULL,
   `pr_number` varchar(45) DEFAULT NULL,
+  `huid` VARCHAR(200) DEFAULT NULL,
   `prod_id` varchar(45) DEFAULT NULL,
   `touch_id` int DEFAULT NULL,
   `i_touch` varchar(45) DEFAULT NULL,
@@ -2159,6 +2161,7 @@ CREATE TABLE `stock_2` (
   `ornament` int DEFAULT NULL,
   `pr_code` varchar(45) DEFAULT NULL,
   `pr_number` varchar(45) DEFAULT NULL,
+  `huid` VARCHAR(200) DEFAULT NULL,
   `prod_id` varchar(45) DEFAULT NULL,
   `touch_id` int DEFAULT NULL,
   `i_touch` varchar(45) DEFAULT NULL,
@@ -2225,6 +2228,7 @@ CREATE TABLE `stock_3` (
   `ornament` int DEFAULT NULL,
   `pr_code` varchar(45) DEFAULT NULL,
   `pr_number` varchar(45) DEFAULT NULL,
+  `huid` VARCHAR(200) DEFAULT NULL,
   `prod_id` varchar(45) DEFAULT NULL,
   `touch_id` int DEFAULT NULL,
   `i_touch` varchar(45) DEFAULT NULL,
