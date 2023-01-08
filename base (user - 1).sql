@@ -695,6 +695,7 @@ CREATE TABLE `jewellery_invoice_details_1` (
   `raw_payment_data` text,
   `raw_data` text,
   `invoice_data` text,
+  `archived` int DEFAULT 0,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -830,6 +831,7 @@ CREATE TABLE `old_items_stock_1` (
   `applied_retail_rate` float DEFAULT NULL,
   `price` float DEFAULT NULL,
   `invoice_ref` varchar(45) DEFAULT NULL,
+  `archived` int DEFAULT 0,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -1400,6 +1402,7 @@ CREATE TABLE `stock_1` (
   `avl_g_wt` decimal(6,3) DEFAULT NULL,
   `avl_n_wt` decimal(6,3) DEFAULT NULL,
   `avl_p_wt` decimal(6,3) DEFAULT NULL,
+  `archived` int DEFAULT 0,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -1452,6 +1455,7 @@ CREATE TABLE `stock_sold_1` (
   `discount` float DEFAULT NULL,
   `total` float DEFAULT NULL,
   `invoice_ref` varchar(45) DEFAULT NULL,
+  `archived` int DEFAULT 0,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
