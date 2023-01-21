@@ -1075,6 +1075,7 @@ DROP TABLE IF EXISTS `jewellery_invoice_details_1`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jewellery_invoice_details_1` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `invoice_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `ukey` varchar(45) DEFAULT NULL,
   `invoice_no` varchar(45) NOT NULL,
   `cust_id` int DEFAULT NULL,
@@ -1111,6 +1112,7 @@ DROP TABLE IF EXISTS `jewellery_invoice_details_2`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jewellery_invoice_details_2` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `invoice_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `ukey` varchar(45) DEFAULT NULL,
   `cust_id` int DEFAULT NULL,
   `action` varchar(45) DEFAULT NULL,
@@ -1147,6 +1149,7 @@ DROP TABLE IF EXISTS `jewellery_invoice_details_3`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jewellery_invoice_details_3` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `invoice_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `ukey` varchar(45) DEFAULT NULL,
   `cust_id` int DEFAULT NULL,
   `action` varchar(45) DEFAULT NULL,
@@ -1183,6 +1186,7 @@ DROP TABLE IF EXISTS `jewellery_invoice_details_4`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jewellery_invoice_details_4` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `invoice_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `ukey` varchar(45) DEFAULT NULL,
   `cust_id` int DEFAULT NULL,
   `action` varchar(45) DEFAULT NULL,
@@ -1258,7 +1262,7 @@ CREATE TABLE `loan_bill_tempate_settings` (
 
 LOCK TABLES `loan_bill_tempate_settings` WRITE;
 /*!40000 ALTER TABLE `loan_bill_tempate_settings` DISABLE KEYS */;
-INSERT INTO `loan_bill_tempate_settings` VALUES (1,1,'{\"firstLine\":{\"left\":{\"text\":\"Form F (Sec. 7 - Rule8)\"},\"center\":{\"text\":\"PAWN TICKET\"},\"right\":{\"text\":\"PBL No. 3/87-88\"},\"styles\":{\"marginTop\":null,\"marginBottom\":null,\"marginRight\":null,\"marginLeft\":null}},\"secondLine\":{\"text\":\"P.TEJARAM\",\"styles\":{\"fontSize\":\"45\",\"letterSpacing\":\"15\",\"color\":\"red\"}},\"thirdLine\":{\"text\":\"PAWN BROKER\",\"styles\":{\"fontSize\":\"17\"}},\"fourthLine\":{\"text\":\"2/34 MOUNT POONAMALLE ROAD, KATTUPPAKKAM, CHENNAI - 600 056\",\"styles\":{\"fontSize\":null}},\"fifthLine\":{\"text\":\"\",\"styles\":{\"fontSize\":null}}}',1);
+-- INSERT INTO `loan_bill_tempate_settings` VALUES (1,1,'{\"firstLine\":{\"left\":{\"text\":\"Form F (Sec. 7 - Rule8)\"},\"center\":{\"text\":\"PAWN TICKET\"},\"right\":{\"text\":\"PBL No. 3/87-88\"},\"styles\":{\"marginTop\":null,\"marginBottom\":null,\"marginRight\":null,\"marginLeft\":null}},\"secondLine\":{\"text\":\"P.TEJARAM\",\"styles\":{\"fontSize\":\"45\",\"letterSpacing\":\"15\",\"color\":\"red\"}},\"thirdLine\":{\"text\":\"PAWN BROKER\",\"styles\":{\"fontSize\":\"17\"}},\"fourthLine\":{\"text\":\"2/34 MOUNT POONAMALLE ROAD, KATTUPPAKKAM, CHENNAI - 600 056\",\"styles\":{\"fontSize\":null}},\"fifthLine\":{\"text\":\"\",\"styles\":{\"fontSize\":null}}}',1);
 /*!40000 ALTER TABLE `loan_bill_tempate_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2728,6 +2732,7 @@ DROP TABLE IF EXISTS `stock_sold_1`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_sold_1` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `stock_tbl_uid` varchar(45) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_id` varchar(45) DEFAULT NULL,
   `metal_rate` int DEFAULT NULL,
@@ -2772,7 +2777,7 @@ DROP TABLE IF EXISTS `stock_sold_2`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_sold_2` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `uid` varchar(45) NOT NULL,
+  `stock_tbl_uid` varchar(45) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_id` varchar(45) DEFAULT NULL,
   `metal_rate` int DEFAULT NULL,
@@ -2819,7 +2824,7 @@ DROP TABLE IF EXISTS `stock_sold_3`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_sold_3` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `uid` varchar(45) NOT NULL,
+  `stock_tbl_uid` varchar(45) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_id` varchar(45) DEFAULT NULL,
   `metal_rate` int DEFAULT NULL,
@@ -2866,7 +2871,7 @@ DROP TABLE IF EXISTS `stock_sold_4`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_sold_4` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `uid` varchar(45) NOT NULL,
+  `stock_tbl_uid` varchar(45) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_id` varchar(45) DEFAULT NULL,
   `metal_rate` int DEFAULT NULL,

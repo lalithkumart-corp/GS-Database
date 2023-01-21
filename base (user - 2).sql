@@ -827,6 +827,7 @@ DROP TABLE IF EXISTS `jewellery_invoice_details_1`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jewellery_invoice_details_1` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `invoice_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `ukey` varchar(45) DEFAULT NULL,
   `invoice_no` varchar(45) NOT NULL,
   `cust_id` int DEFAULT NULL,
@@ -863,6 +864,7 @@ DROP TABLE IF EXISTS `jewellery_invoice_details_2`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jewellery_invoice_details_2` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `invoice_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `ukey` varchar(45) DEFAULT NULL,
   `cust_id` int DEFAULT NULL,
   `action` varchar(45) DEFAULT NULL,
@@ -1878,6 +1880,7 @@ DROP TABLE IF EXISTS `stock_sold_1`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_sold_1` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `stock_tbl_uid` varchar(45) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_id` varchar(45) DEFAULT NULL,
   `metal_rate` int DEFAULT NULL,
@@ -1922,7 +1925,7 @@ DROP TABLE IF EXISTS `stock_sold_2`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_sold_2` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `uid` varchar(45) NOT NULL,
+  `stock_tbl_uid` varchar(45) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_id` varchar(45) DEFAULT NULL,
   `metal_rate` int DEFAULT NULL,
