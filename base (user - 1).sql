@@ -1440,6 +1440,7 @@ CREATE TABLE `stock_sold_1` (
   `stock_tbl_uid` varchar(45) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_id` varchar(45) DEFAULT NULL,
+  `huid` varchar(45) DEFAULT NULL,
   `metal_rate` int DEFAULT NULL,
   `retail_rate` int DEFAULT NULL,
   `ornament` int DEFAULT NULL,
