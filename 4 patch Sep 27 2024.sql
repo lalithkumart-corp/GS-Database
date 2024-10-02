@@ -171,3 +171,13 @@ CHANGE COLUMN `cash_out_mode` `cash_out_mode` VARCHAR(45) NULL DEFAULT NULL AFTE
 CHANGE COLUMN `cash_out_to_bank_acc_no` `cash_out_to_bank_acc_no` VARCHAR(45) NULL DEFAULT NULL AFTER `cash_out_mode`,
 CHANGE COLUMN `cash_out_to_bank_ifsc` `cash_out_to_bank_ifsc` VARCHAR(45) NULL DEFAULT NULL AFTER `cash_out_to_bank_acc_no`,
 CHANGE COLUMN `account_id` `account_id` VARCHAR(45) NULL DEFAULT NULL AFTER `cash_out_to_bank_ifsc`;
+
+
+ALTER TABLE `gsprod`.`stock_sold_1` 
+ADD COLUMN `is_returned` INT NULL DEFAULT 0 AFTER `invoice_ref`;
+
+ALTER TABLE `gsprod`.`old_items_stock_1` 
+ADD COLUMN `is_returned` INT NULL DEFAULT 0 AFTER `invoice_ref`;
+
+ALTER TABLE `gsprod`.`jewellery_invoices_1` 
+ADD COLUMN `return_charges_val` FLOAT NULL AFTER `is_returned`;
