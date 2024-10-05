@@ -181,3 +181,10 @@ ADD COLUMN `is_returned` INT NULL DEFAULT 0 AFTER `invoice_ref`;
 
 ALTER TABLE `gsprod`.`jewellery_invoices_1` 
 ADD COLUMN `return_charges_val` FLOAT NULL AFTER `is_returned`;
+
+ALTER TABLE `gsprod`.`jewellery_bill_settings` 
+ADD COLUMN `custom_args` TEXT NULL DEFAULT NULL AFTER `custom_css`;
+
+ALTER TABLE `gsprod`.`jewellery_invoices_1` 
+ADD COLUMN `returned_amt_val` FLOAT NULL AFTER `return_charges_val`,
+ADD COLUMN `returned_date` DATETIME NULL AFTER `returned_amt_val`;
