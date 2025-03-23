@@ -22,3 +22,10 @@ CREATE TABLE `gsprod`.`udhaar_closed_bills_1` (
   `created_datetime` DATETIME NULL,
   `modified_datetime` DATETIME NULL,
   PRIMARY KEY (`id`));
+
+
+DELETE FROM `gsprod_backup`.`loan_bill_avl_template_list` WHERE (`id` = '3');
+DELETE FROM `gsprod_backup`.`loan_bill_avl_template_list` WHERE (`id` = '4');
+
+ALTER TABLE `gsprod`.`user_preferences` 
+ADD COLUMN `loan_bill_expiry_days` INT NULL DEFAULT 372 AFTER `bill_create_alert_offline_date`;
