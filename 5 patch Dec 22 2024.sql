@@ -29,3 +29,10 @@ DELETE FROM `gsprod_backup`.`loan_bill_avl_template_list` WHERE (`id` = '4');
 
 ALTER TABLE `gsprod`.`user_preferences` 
 ADD COLUMN `loan_bill_expiry_days` INT NULL DEFAULT 372 AFTER `bill_create_alert_offline_date`;
+
+INSERT INTO `gsprod`.`jewellery_tag_avl_template_list` (`template_id`, `parameters_json`) VALUES ('3', '{\"labelWidth\": 80, \"labelHeight\": 12, \"linearLeft\": 2, \"linearRight\": 4, \"totalWidth\": 86, \"tagBody\": 54, \"tagStem\": 26}');
+INSERT INTO `gsprod`.`jewellery_tag_avl_template_list` (`template_id`, `parameters_json`) VALUES ('4', '{\"labelWidth\": 80, \"labelHeight\": 12, \"linearLeft\": 2, \"linearRight\": 4, \"totalWidth\": 86, \"tagBody\": 54, \"tagStem\": 26}');
+
+
+ALTER TABLE `gsprod`.`jewellery_tag_settings` 
+ADD COLUMN `store_name_full` VARCHAR(100) NULL AFTER `store_name_abbr`;
